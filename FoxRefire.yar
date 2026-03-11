@@ -1,12 +1,13 @@
-rule Andr_Adware_EvilCleaner {
+rule Andr_Adware_EvilCleaner_a {
     meta:
     author = "yarGen Rule Generator"
     reference = "https://github.com/Neo23x0/yarGen"
     date = "2026-03-12"
     strings:
     $dex = { 64 65 78 0A 30 33 ?? 00 }
+
     $p1 = "/cleaner/activity/" ascii
-    $p2 = "/clean/activity/"
+    $p2 = "/clean/activity/" ascii
     $p3 = "Lcom/clean/" ascii
     $p4 = "/clean/main/" ascii
     $p5 = "/JunkScanActivity" ascii
@@ -28,5 +29,23 @@ rule Andr_Adware_EvilCleaner {
     $dex at 0 and (
         (any of ($p*)) and
         (2   of ($a*))
+    )
+}
+
+rule Andr_Adware_EvilCleaner_b {
+    meta:
+    author = "yarGen Rule Generator"
+    reference = "https://github.com/Neo23x0/yarGen"
+    date = "2026-03-12"
+    strings:
+    $dex = { 64 65 78 0A 30 33 ?? 00 }
+
+    $p1 = "com.cleanmaster.mguard" ascii
+    $p2 = "com.noxgroup.app.cleaner" ascii
+    $p3 = "com.ushareit.cleanit" ascii
+
+    condition:
+    $dex at 0 and (
+        (any of ($p*))
     )
 }
