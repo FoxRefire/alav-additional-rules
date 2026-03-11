@@ -1,8 +1,4 @@
 rule Andr_Adware_EvilCleaner_a {
-    meta:
-    author = "yarGen Rule Generator"
-    reference = "https://github.com/Neo23x0/yarGen"
-    date = "2026-03-12"
     strings:
     $dex = { 64 65 78 0A 30 33 ?? 00 }
 
@@ -33,10 +29,6 @@ rule Andr_Adware_EvilCleaner_a {
 }
 
 rule Andr_Adware_EvilCleaner_b {
-    meta:
-    author = "yarGen Rule Generator"
-    reference = "https://github.com/Neo23x0/yarGen"
-    date = "2026-03-12"
     strings:
     $dex = { 64 65 78 0A 30 33 ?? 00 }
 
@@ -47,5 +39,18 @@ rule Andr_Adware_EvilCleaner_b {
     condition:
     $dex at 0 and (
         (any of ($p*))
+    )
+}
+
+rule Andr_Adware_EvilCleaner_c {
+    strings:
+    $dex = { 64 65 78 0A 30 33 ?? 00 }
+
+    $p1 = "$cleanUps" ascii
+    $p2 = "last_cleanup_time" ascii
+
+    condition:
+    $dex at 0 and (
+        (all of ($p*))
     )
 }
