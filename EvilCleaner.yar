@@ -15,6 +15,7 @@ rule Andr_Adware_EvilCleaner_a {
     $p11 = "/junkclean/presentation/" ascii
     $p12 = "NewJunkCleanerPageActivity$" ascii
     $p13 = "/cleaner/view/" ascii
+    $p14 = "/junkclean/" ascii
 
     $a1 = "com/bytedance/sdk/openadsdk/" ascii
     $a2 = "Lcom/bytedance/adsdk/" ascii
