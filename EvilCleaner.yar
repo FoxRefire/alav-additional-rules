@@ -42,16 +42,3 @@ rule Andr_Adware_EvilCleaner_b {
         (any of ($p*))
     )
 }
-
-rule Andr_Adware_EvilCleaner_c {
-    strings:
-    $dex = { 64 65 78 0A 30 33 ?? 00 }
-
-    $p1 = "$cleanUps" ascii
-    $p2 = "last_cleanup_time" ascii
-
-    condition:
-    $dex at 0 and (
-        (all of ($p*))
-    )
-}
